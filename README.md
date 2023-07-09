@@ -1,7 +1,7 @@
 # Pico-W-Robot
 ## Micropython code to control a basic robot using a web interface
 Initially using L298N motor driver on a Dagu multi-chassis (4WD version)
-Uses 2 pairs of motors from the Dagu kit, PWM speed control
+Uses 2 pairs of DC motors from the Dagu kit, PWM speed control, power from 3S LiPo battery and driver board's voltage converter
 
 **Inspiration from:**
 
