@@ -40,6 +40,8 @@ def bwd():
     aback.value(1)
     bback.value(1)
 def stop():
+    global lastaction
+    lastaction = "s"
     ENA.duty_u16 (0)
     ENB.duty_u16 (0)
 def left():
@@ -74,6 +76,8 @@ def slow():
         right()
     if lastaction == "l":
         left()
+    if lastaction == "s":
+        stop()
 def fast():
     global currentstep, duty
     if (currentstep < step-1):
@@ -88,6 +92,8 @@ def fast():
         right()
     if lastaction == "l":
         left()
+    if lastaction == "s":
+        stop()
 #Stop the robot as soon as possible
 stop()
     
