@@ -88,7 +88,7 @@ def fast():
         right()
     if lastaction == "l":
         left()
-5#Stop the robot as soon as possible
+#Stop the robot as soon as possible
 stop()
     
 def connect():
