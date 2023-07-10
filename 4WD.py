@@ -10,7 +10,7 @@ frq = 1500
 dutymax = int(65535) # highest duty cycle value
 speedsteps = [0.55,0.6,0.65,0.7,0.75,0.8,0.85,0.9,0.95,1] # to multiply dutymax
 step = len (speedsteps)
-currentstep = 0 # initialise counter in speedsteps
+currentstep = int(step/2) # initialise counter in speedsteps
 duty = int(dutymax*(speedsteps[currentstep]))
 ENB = PWM(Pin(17))
 ENB.freq(frq)
@@ -47,7 +47,7 @@ def stop():
 def left():
     global lastaction
     lastaction = "l"
-    ENA.duty_u16 (int(duty*0.75))
+    ENA.duty_u16 (int(duty*0.25))
     ENB.duty_u16 (duty)
     afwd.value(1)
     bfwd.value(1)
@@ -57,7 +57,7 @@ def right():
     global lastaction
     lastaction = "r"
     ENA.duty_u16 (duty)
-    ENB.duty_u16 (int(duty*0.75))
+    ENB.duty_u16 (int(duty*0.25))
     afwd.value(1)
     bfwd.value(1)
     aback.value(0)
@@ -224,7 +224,7 @@ try:
     ip = connect()
     connection = open_socket(ip)
     serve(connection)
-    sleep(0.2)
+    sleep(0.25)
 except KeyboardInterrupt:
     stop()
     machine.reset()
