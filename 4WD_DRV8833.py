@@ -1,10 +1,13 @@
 import network
 import socket
 from time import sleep
-import machine
+import machine, neopixel
 from machine import Pin, PWM
 from secret import ssid,password,hostname
 led = Pin("LED", Pin.OUT) # onboard LED
+np = neopixel.NeoPixel(Pin(28), 1) # Set Pin 28,1 neopixel
+kip = 0.25
+bright = 7
 
 frq = 20 # lower number gets more torque at the wheels
 dutymax = 65535 # highest duty cycle value
@@ -53,15 +56,15 @@ def right():
     global lastaction
     lastaction = "l"
     in1.duty_u16(duty)
-    in3.duty_u16(int(duty*0.5))
+    in3.duty_u16(0)
     in2.duty_u16(0)
-    in4.duty_u16(0)
+    in4.duty_u16(duty)
 def left():
     global lastaction
     lastaction = "r"
-    in1.duty_u16(int(duty*0.5))
+    in1.duty_u16(0)
     in3.duty_u16(duty)
-    in2.duty_u16(0)
+    in2.duty_u16(duty)
     in4.duty_u16(0)
 def slow():
     global currentstep, duty
@@ -96,6 +99,12 @@ def fast():
         left()
     elif lastaction == "s":
         stop()
+def LEDon(rv,gv,bv): # turns on LED pixel, red grn blue brightness values 
+    np[0] = (rv,gv,bv)        
+    np.write()
+def LEDoff(): # turns off all pixels
+    np[0] = (0,0,0)        
+    np.write()
 #Stop the robot as soon as possible
 stop()
     
@@ -107,12 +116,14 @@ def connect():
     wlan.connect(ssid, password)
     while wlan.isconnected() == False:
         print('Waiting for connection...')
-        sleep(2)
+        sleep(1)
     ip = wlan.ifconfig()[0]
-    print(f'Connected on {ip}')
     for x in range (9): # indicate network connected
-        led.toggle()
+        LEDon (bright,bright,bright)
         sleep (0.25)
+        LEDoff()
+        sleep (0.25)
+    print(f'Connected on {ip}')
     return ip
     
 def open_socket(ip):
@@ -221,13 +232,14 @@ def serve(connection):
         html = webpage()
         client.send(html)
         client.close()
-
+LEDon (0,bright,0) # red = power
 try:
     ip = connect()
     connection = open_socket(ip)
     serve(connection)
     sleep(0.25)
 except KeyboardInterrupt:
+    LEDoff()
     stop()
     machine.reset()
 
