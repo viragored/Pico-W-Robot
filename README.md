@@ -8,10 +8,10 @@ Uses 2 pairs of DC motors from the Dagu kit in parallel, PWM speed control, powe
 Web interface accessed from browser provides control - there can be big time lags between pressing a button and the robot responding
 
 ### File 4WD_DRV8833.py: For a Pico W
-A variant of the first file, but using the DRV8833 driver and a Buck step-dowm 5V voltage converter. It worked OK, but the poor control response times using a web interface didn't make me keen to carry on with this. 
+A variant of the first file, but using the DRV8833 driver and a Buck step-down 5V voltage converter. It worked OK, but the poor control response times using a web interface didn't make me keen to carry on with this. 
 
 ### File "4WD_BT_DRV8833": For a basic Pico (not W) with HC-05 Bluetooth module
-Same chassis but with a DRV8833 motor driver and a 5V Buck step-dowm voltage converter delivering 5V (measured at 5.02V). The platform on top of Dagu metal chassis is designed in OpenSCAD, printed in PLA on a Prusa i3 Mk3S
+Same chassis but with a DRV8833 motor driver and a 5V Buck step-down voltage converter delivering 5V (measured at 5.02V). The platform on top of Dagu metal chassis is designed in OpenSCAD, printed in PLA on a Prusa i3 Mk3S
 
 Pictures "front" and "back" show the first prototype print.
 
