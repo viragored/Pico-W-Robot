@@ -1,5 +1,5 @@
-# Pico-W-Robot
-## Micropython code to control a basic robot using a web interface
+# Pico Robot
+## Micropython code to control a basic robot using a web interface, or Bluetooth with an Android app
 ### File 4WD.py: For a Pico W
 First attempt, using L298N motor driver on a Dagu multi-chassis (4WD version)
 
