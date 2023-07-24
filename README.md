@@ -28,7 +28,7 @@ There is a screenshot of the app in file "App screenshot.jpg"
 Simple usage instructions are:
 - Install the app on your mobile device
 - Pair your mobile device and the HC-05 (default password is probably 1234)
-- Run the app. Tap the prompt to 'Select device' and choose the HC-05. Wait for the LED on the HC-05 to turn off when pairing is complete
+- Run the app. Tap the prompt to 'Select device' and choose the HC-05. Wait for the LED on the HC-05 to turn off and the home screen to return when pairing is complete
 - Playtime! Move the robot forward, backwards, left or right with the arrows. Adjust the speed with the slider. Stop the robot with "Stop", and resume movement with the arrows.
 - The "Crash stop" button stops the motors, and terminates the code on the Pico. If using main.py, it might be possible at this point to connect Thonny and access the Pico to edit the code (not yet tested). 
 
