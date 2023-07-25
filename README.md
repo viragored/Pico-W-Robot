@@ -5,7 +5,7 @@ First attempt, using L298N motor driver on a Dagu multi-chassis (4WD version)
 
 Uses 2 pairs of DC motors from the Dagu kit in parallel, PWM speed control, power from 3S LiPo battery and driver board's voltage converter. Low torque at low speed, not very satisfactory.
 
-Web interface accessed from browser provides control - there can be big time lags between pressing a button and the robot responding
+Web interface accessed from browser provides control - there can be significant time lags between pressing a button and the robot responding
 
 ### File 4WD_DRV8833.py: For a Pico W
 A variant of the first file, but using the DRV8833 driver and a Buck step-down 5V voltage converter. It worked OK, but the poor control response times using a web interface didn't make me keen to carry on with this. 
