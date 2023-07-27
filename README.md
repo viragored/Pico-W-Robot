@@ -10,7 +10,7 @@ Web interface accessed from browser provides control - there can be significant 
 ### File 4WD_DRV8833.py: For a Pico W
 A variant of the first file, but using the DRV8833 driver and a Buck step-down 5V voltage converter. It worked OK, but the poor control response times using a web interface didn't make me keen to carry on with this. 
 
-### File "4WD_BT_DRV8833": For a basic Pico (not W) with HC-05 Bluetooth module
+### File "4WD_BT_DRV8833": For a basic Pico (or Pico W) with HC-05 Bluetooth module
 Same chassis but with a DRV8833 motor driver and a 5V Buck step-down voltage converter delivering 5V (measured at 5.02V). The platform on top of Dagu metal chassis is designed in OpenSCAD, printed in PLA on a Prusa i3 Mk3S
 
 The wiring diagram is in file "DRV8833 wiring.pdf". My code uses the pin connections shown there - if changing code or pin assignments, change one = change the other!
